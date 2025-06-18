@@ -27,7 +27,10 @@ do{
         continue; /* salto al proximo ciclo en caso de que la entrada sea invalida */
     }
 
-    
+    if(opcion == 5){ /* en caso de que la opcion sea 5 se limpia unicamente */
+        calculador.Limpiar();
+        Console.WriteLine($"\n\tResultado de la operacion: {calculador.Resultado}");
+    }
     do{
         Console.Write("\n\tDesea continuar? (Si = 1 | No = 2):\t");
         int continuar;
