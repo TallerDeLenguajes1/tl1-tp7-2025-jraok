@@ -27,7 +27,7 @@ namespace EspacioCalculadora
             }
             else
             {
-                Console.WriteLine("Valor invalido");
+                Console.WriteLine("\n\tValor invalido, no se puede dividir por 0");
             }
         }
         public void Limpiar()
