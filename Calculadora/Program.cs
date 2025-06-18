@@ -35,18 +35,18 @@ do{
         string Entrada = Console.ReadLine();    /* variable para la lectura del numero */
 
         if(string.IsNullOrEmpty(Entrada))   goto PreguntarContinuar;   /* salto a la pregunta sobre continuar */
-        // //conversion de string a double para la operacion
-        // if(double.TryParse(Entrada, out numero)){
-        //     switch(opcion){
-        //         case 1:calculador.Sumar(numero);        break;
-        //         case 2:calculador.Restar(numero);       break;
-        //         case 3:calculador.Multiplicar(numero);  break;
-        //         case 4:calculador.Dividir(numero);      break;
-        //     }
-        //     Console.WriteLine($"\n\tResultado de la operacion: {calculador.Resultado}"); /* muestra del resultado */
-        // }else{
-        //     Console.WriteLine("\n\t\tVALOR NO ADMITIDO"); /* mensaje de error */
-        // }
+        //conversion de string a double para la operacion
+        if(double.TryParse(Entrada, out numero)){
+            switch(opcion){
+                case 1:calculador.Sumar(numero);        break;
+                case 2:calculador.Restar(numero);       break;
+                case 3:calculador.Multiplicar(numero);  break;
+                case 4:calculador.Dividir(numero);      break;
+            }
+            Console.WriteLine($"\n\tResultado de la operacion: {calculador.Resultado}"); /* muestra del resultado */
+        }else{
+            Console.WriteLine("\n\t\tVALOR NO ADMITIDO"); /* mensaje de error */
+        }
     }
     
     PreguntarContinuar: /* ciclo para preguntar si se quiere continuar */
