@@ -2,24 +2,24 @@ namespace EspacioCalculadora
 {
     public class Calculadora
     {
-        private float dato;
-        public float Dato { get { return dato; } }
-        public void Sumar(float numero)
+        private double dato;
+        public double Resultado { get { return dato; } }
+        public void Sumar(double numero)
         {
             dato += numero;
         }
 
-        public void Restar(float numero)
+        public void Restar(double numero)
         {
             dato -= numero;
         }
 
-        public void Multiplicar(float numero)
+        public void Multiplicar(double numero)
         {
             dato *= numero;
         }
 
-        public void Dividir(float numero)
+        public void Dividir(double numero)
         {
             if (numero != 0)
             {
