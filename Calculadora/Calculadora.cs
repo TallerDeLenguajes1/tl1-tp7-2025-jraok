@@ -6,24 +6,24 @@ namespace EspacioCalculadora
         public float Dato { get { return dato; } }
         public void Sumar(float numero)
         {
-            Dato += numero;
+            dato += numero;
         }
 
         public void Restar(float numero)
         {
-            Dato -= numero;
+            dato -= numero;
         }
 
         public void Multiplicar(float numero)
         {
-            Dato *= numero;
+            dato *= numero;
         }
 
         public void Dividir(float numero)
         {
             if (numero != 0)
             {
-                Dato /= numero;
+                dato /= numero;
             }
             else
             {
