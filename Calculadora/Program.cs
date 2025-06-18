@@ -1,8 +1,8 @@
-﻿using System.Runtime.CompilerServices;
-using EspacioCalculadora;
+﻿using EspacioCalculadora;
 
 // variables para el programa
 double numero = 0, opcion = 0;
+int continuar = 1;
 string operacionMenu;
 Calculadora calculador = new Calculadora();
 
@@ -52,7 +52,6 @@ do{
     PreguntarContinuar: /* ciclo para preguntar si se quiere continuar */
     do{
         Console.Write("\n\tDesea continuar? (Si = 1 | No = 2):\t");
-        int continuar;
         if(int.TryParse(Console.ReadLine(), out continuar) && (continuar == 1 || continuar == 2)){
            break;
         }
