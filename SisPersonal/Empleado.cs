@@ -32,59 +32,72 @@ namespace EspacioEmpleado
         public Cargos CargoEmpleado => cargoEmpleado;
 
         // metodos para cargar los datos
-        public void AsignarNombre(string nuevoNombre) {
+        public bool AsignarNombre(string nuevoNombre) {
             if (!string.IsNullOrEmpty(nuevoNombre))
             {
                 nombre = nuevoNombre;
+                return true;
             }else
             {
                 Console.WriteLine("Error no es posible asignar un valor vacio");
+                return false;
             }
         }
-        public void AsignarApellido(string nuevoApellido){
+        public bool AsignarApellido(string nuevoApellido){
             if (!string.IsNullOrEmpty(nuevoApellido))
             {
                 apellido = nuevoApellido;
+                return true;
             }else
             {
                 Console.WriteLine("Error no es posible asignar un valor vacio");
+                return false;
             }
         }
-        public void AsignarEC(char estado) {
+        public bool AsignarEC(char estado) {
             estado = char.ToUpper(estado);
             if (estado == 'S' || estado == 'C' || estado == 'D' || estado == 'V'){
                 estadoCivil = estado;
+                return true;
             }else{
                 Console.WriteLine("Estado invalido");
+                return false;
             }
         }
-        public void AsignarSueldo(float sueldo){
+        public bool AsignarSueldo(float sueldo){
             if(sueldo > 0){
                 sueldoBasico = sueldo;       
+                return true;
             }else{
                 Console.WriteLine("\n\t\t---Error no es posible ingresar un valor negativo");
+                return false;
             }
         }
-        public void AsignarFechaNacimiento(DateTime fecha){
+        public bool AsignarFechaNacimiento(DateTime fecha){
             if (DateTime.Today.AddYears(-18) >= fecha)
             {
                 fechaNacimiento = fecha;
+                return true;
             }else{
                 Console.WriteLine("\n\t\t---Error no es posible ingresar menores");
+                return false;
             }
         }
-        public void AsignarFechaIngreso(DateTime fecha){
+        public bool AsignarFechaIngreso(DateTime fecha){
             if (fechaNacimiento > fecha)
             {
                 Console.WriteLine("\n\t\t---Error el ingreso no puede ser antes del nacimiento");
+                return false;
             }else if(DateTime.Today < fecha)
                 {
                 Console.WriteLine("\n\t\t---Error no es posible ingresar una fecha futura");
+                return false;
             }else{
                 fechaIngreso = fecha;
+                return true;
             }
         }
-        public void AsignarCargo(Cargos nuevoCargo) => cargoEmpleado = nuevoCargo;
+        public bool AsignarCargo(Cargos nuevoCargo) => cargoEmpleado = nuevoCargo;
 
         // metodos del trabajo practico
 
