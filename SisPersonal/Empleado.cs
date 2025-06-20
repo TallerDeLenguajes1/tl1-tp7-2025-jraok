@@ -14,35 +14,15 @@ namespace EspacioEmpleado
         private DateTime fechaNacimiento, fechaIngreso;
         private char estadoCivil;
         private float sueldoBasico;
+        private Cargos cargoEmpleado;
 
-        public string Nombre{
-            get { return nombre; }
-            set { nombre = value; }
-        }
-        public string Apellido{
-            get { return apellido; }
-            set { apellido = value; }
-        }
-        public char estadoCivil{
-            get { return estadoCivil; }
-            set { estadoCivil = value; }
-        }
-        public DateTime FechaNacimiento{
-            get { return fechaNacimiento; }
-            set { fechaNacimiento = value; }
-        }
-        public DateTime Fechaingreso{
-            get { return fechaIngreso; }
-            set { fechaIngreso = value; }
-        }
-        public float SueldoBasico{
-            get { return sueldoBasico; }
-            set { sueldoBasico = value; }
-        }
+        public string Nombre => nombre;
+        public string Apellido => apellido;
+        public char EstadoCivil => estadoCivil;
+        public DateTime FechaNacimiento => fechaNacimiento;
+        public DateTime FechaIngreso => fechaIngreso;
+        public float SueldoBasico => sueldoBasico;
+        public Cargos CargoEmpleado => cargoEmpleado;
 
-        public Cargos CargoEmpleado{
-            get { return cargoEmpleado; }
-            set { cargoEmpleado = value; }
-        }
     }
 }
