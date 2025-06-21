@@ -47,9 +47,7 @@ namespace EspacioEmpleado
             {
                 apellido = nuevoApellido;
                 return true;
-            }else
-            {
-                Console.WriteLine("Error no es posible asignar un valor vacio");
+            }else{
                 return false;
             }
         }
@@ -59,7 +57,6 @@ namespace EspacioEmpleado
                 estadoCivil = estado;
                 return true;
             }else{
-                Console.WriteLine("Estado invalido");
                 return false;
             }
         }
@@ -68,7 +65,6 @@ namespace EspacioEmpleado
                 sueldoBasico = sueldo;       
                 return true;
             }else{
-                Console.WriteLine("\n\t\t---Error no es posible ingresar un valor negativo");
                 return false;
             }
         }
@@ -78,18 +74,15 @@ namespace EspacioEmpleado
                 fechaNacimiento = fecha;
                 return true;
             }else{
-                Console.WriteLine("\n\t\t---Error no es posible ingresar menores");
                 return false;
             }
         }
         public bool AsignarFechaIngreso(DateTime fecha){
             if (fechaNacimiento > fecha)
             {
-                Console.WriteLine("\n\t\t---Error el ingreso no puede ser antes del nacimiento");
                 return false;
             }else if(DateTime.Today < fecha)
                 {
-                Console.WriteLine("\n\t\t---Error no es posible ingresar una fecha futura");
                 return false;
             }else{
                 fechaIngreso = fecha;
