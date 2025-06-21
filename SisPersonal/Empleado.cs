@@ -1,6 +1,4 @@
 using System;
-using System.Runtime.CompilerServices;
-using Internal;
 
 namespace EspacioEmpleado
 {
@@ -97,10 +95,53 @@ namespace EspacioEmpleado
                 return true;
             }
         }
-        public bool AsignarCargo(Cargos nuevoCargo) => cargoEmpleado = nuevoCargo;
+        public void AsignarCargo(Cargos nuevoCargo) => cargoEmpleado = nuevoCargo;
 
         // metodos del trabajo practico
 
+        // metodo para calcular la edad
+        public int CalcularEdad(){
+            int edad = DateTime.Today.Year - fechaNacimiento.Year;
+            if (DateTime.Today < fechaNacimiento.AddYears(edad))
+            {
+                edad--;
+            }
+            return edad;
+        }
+
+        // metodo para calcular la antiguedad
+        public int CalcularAntiguedad(){
+            int antiguedad = DateTime.Today.Year - fechaIngreso.Year;
+            if (DateTime.Today < fechaIngreso.AddYears(antiguedad))
+            {
+                antiguedad--;
+            }
+            return antiguedad;
+        }
+
+        // metodo para calcular lo que falta para jubilarse
+        public int Jubilacion(){
+            int jubilo = 65 - CalcularEdad();
+            return jubilo > 0 ? jubilo : 0;
+        }
+         // metodo para calcular el sueldo
+        public float CalcularSueldo(){
+            float porcentaje;
+            int antiguedad = CalcularAntiguedad();
+
+            antiguedad < 20 ? porcentaje = antiguedad/100 : porcentaje = 0.25;
+            
+            if (cargoEmpleado == Cargos.Ingeniero || cargoEmpleado == Cargos.Especialista) porcentaje*=1.5; 
+
+            float sueldoFinal = sueldoBasico * porcentaje;
+
+            if (estadoCivil == "C")
+            {
+                sueldoFinal += 150000;
+            }
+
+            return sueldoFinal;
+        }
 
     }
 }
