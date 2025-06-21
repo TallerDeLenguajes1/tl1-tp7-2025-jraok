@@ -1,5 +1,4 @@
 using System;
-
 namespace EspacioEmpleado
 {
     // enum con los distintos cargos de un empleado
@@ -13,11 +12,13 @@ namespace EspacioEmpleado
 
     // clase para el obejeto empleado
     public class Empleado{
+        // constante para el sueldo
+        private const float SUELDO_INICIAL = 100000f;
         // campos del objeto
         private string nombre, apellido;
         private DateTime fechaNacimiento, fechaIngreso;
         private char estadoCivil;
-        private float sueldoBasico;
+        private float sueldoBasico = SUELDO_INICIAL;
         private Cargos cargoEmpleado;
 
         //propiedades para de solo lectura para los campos
@@ -62,7 +63,7 @@ namespace EspacioEmpleado
                 return false;
             }
         }
-        public bool AsignarSueldo(float sueldo){
+        public bool AsignarNuevoSueldo(float sueldo){
             if(sueldo > 0){
                 sueldoBasico = sueldo;       
                 return true;
