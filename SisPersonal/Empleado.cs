@@ -118,27 +118,20 @@ namespace EspacioEmpleado
         }
          // metodo para calcular el sueldo
         public float CalcularSueldo(){
-            float porcentaje;
+            float porcentaje = 1;
             int antiguedad = CalcularAntiguedad();
 
             if (antiguedad > 19)
             {
                 porcentaje = 1.25f;
-            }else{
-                porcentaje = antiguedad/100f;
+            }else if(antiguedad > 0){
+                porcentaje += antiguedad/100f;
             }
 
             if (cargoEmpleado == Cargos.Ingeniero || cargoEmpleado == Cargos.Especialista) 
                 porcentaje*=1.5f; 
 
-            float suelfoFinal = sueldoBasico;
-
-            if (porcentaje != 0)
-            {
-                suelfoFinal *= porcentaje;
-            }
-
-            return estadoCivil == 'C' ? (sueldoFinal + 150000) : sueldoFinal;
+            return estadoCivil == 'C' ? (sueldoBasico * porcentaje + 150000) : sueldoBasico * porcentaje;
         }
 
     }
