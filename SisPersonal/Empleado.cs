@@ -102,21 +102,13 @@ namespace EspacioEmpleado
         // metodo para calcular la edad
         public int CalcularEdad(){
             int edad = DateTime.Today.Year - fechaNacimiento.Year;
-            if (DateTime.Today < fechaNacimiento.AddYears(edad))
-            {
-                edad--;
-            }
-            return edad;
+            return DateTime.Today < fechaNacimiento.AddYears(edad) ? --edad : edad;
         }
 
         // metodo para calcular la antiguedad
         public int CalcularAntiguedad(){
             int antiguedad = DateTime.Today.Year - fechaIngreso.Year;
-            if (DateTime.Today < fechaIngreso.AddYears(antiguedad))
-            {
-                antiguedad--;
-            }
-            return antiguedad;
+            return DateTime.Today < fechaIngreso.AddYears(antiguedad) ? (--antiguedad) : antiguedad;
         }
 
         // metodo para calcular lo que falta para jubilarse
@@ -129,18 +121,24 @@ namespace EspacioEmpleado
             float porcentaje;
             int antiguedad = CalcularAntiguedad();
 
-            antiguedad < 20 ? porcentaje = antiguedad/100 : porcentaje = 0.25;
-            
-            if (cargoEmpleado == Cargos.Ingeniero || cargoEmpleado == Cargos.Especialista) porcentaje*=1.5; 
-
-            float sueldoFinal = sueldoBasico * porcentaje;
-
-            if (estadoCivil == "C")
+            if (antiguedad > 19)
             {
-                sueldoFinal += 150000;
+                porcentaje = 1.25f;
+            }else{
+                porcentaje = antiguedad/100f;
             }
 
-            return sueldoFinal;
+            if (cargoEmpleado == Cargos.Ingeniero || cargoEmpleado == Cargos.Especialista) 
+                porcentaje*=1.5f; 
+
+            float suelfoFinal = sueldoBasico;
+
+            if (porcentaje != 0)
+            {
+                suelfoFinal *= porcentaje;
+            }
+
+            return estadoCivil == 'C' ? (sueldoFinal + 150000) : sueldoFinal;
         }
 
     }
