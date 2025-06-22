@@ -1,6 +1,8 @@
 ﻿using System;
 using EspacioEmpleado;
+using Internal;
 
+int opcion;
 Empleado[] empleados = new Empleado[3];
 DateTime FechaAux;
 
@@ -16,7 +18,7 @@ for (int i = 0; i < empleados.Length; i++)
     // Ingreso el nombre del empleado
     do
     {
-        Console.Write("\n\tNombre:\t");
+        Console.Write("\n\tNombre: ");
         entrada = Console.ReadLine();
         if (empleados[i].AsignarNombre(entrada)){   /* si la carga es valida sale del bucle sino un mensaje de error */
             break;
@@ -28,7 +30,7 @@ for (int i = 0; i < empleados.Length; i++)
     // ingreso del apellido del empleado
     do
     {
-        Console.Write("\n\tApellido:\t");
+        Console.Write("\n\tApellido: ");
         entrada = Console.ReadLine();
         if(empleados[i].AsignarApellido(entrada)){ /* si la carga es valida sale del bucle sino un mensaje de error */
             break;
@@ -40,7 +42,7 @@ for (int i = 0; i < empleados.Length; i++)
     // ingreso de la fecha de nacimiento
     do
     {
-        Console.Write("\n\tFecha de nacimiento (dd/mm/yyyy):\t");
+        Console.Write("\n\tFecha de nacimiento (dd/mm/yyyy): ");
         entrada = Console.ReadLine();
         ok = DateTime.TryParse(entrada, out FechaAux);  /* aqui se verifica si la entrada es valida para usarse */
         if (ok && empleados[i].AsignarFechaNacimiento(FechaAux))    /* si la carga y el formato son validos salimos del bucle sino mensaje de error */
@@ -54,7 +56,7 @@ for (int i = 0; i < empleados.Length; i++)
     // ingreso de la fecha de ingreso al trabajo
     do
     {
-        Console.Write("\n\tFecha de ingreso (dd/mm/yyyy):\t");
+        Console.Write("\n\tFecha de ingreso (dd/mm/yyyy): ");
         entrada = Console.ReadLine();
         ok = DateTime.TryParse(entrada, out FechaAux);  /* aqui se verifica si es la entrada es valida para usarse */
         if (ok && empleados[i].AsignarFechaIngreso(FechaAux))   /* si la carga y el formato son validos salimos del bucle sino mensaje de error */
@@ -69,7 +71,7 @@ for (int i = 0; i < empleados.Length; i++)
     do
     {
         /* estos son los estados civiles aceptados para el formulario */
-        Console.Write("\n\t---Estado civil---\n\tSoltero/a = S\n\tCasado/a = C\n\tDivorciado/a = D\n\tViudo/a = V\n\tEstado:\t");
+        Console.Write("\n\t---Estado civil---\n\tSoltero/a = S\n\tCasado/a = C\n\tDivorciado/a = D\n\tViudo/a = V\n\tEstado: ");
         entrada = Console.ReadLine();
         if (empleados[i].AsignarEC(entrada[0]))    /* si la carga es exitosa salimos del bucle sino un mensje de error */
         {
@@ -104,3 +106,15 @@ for (int i = 0; i < empleados.Length; i++)
     Console.WriteLine(new string('-', 50)); // separador visual
 
 }
+
+do
+{
+    Console.WriteLine("\n\t\t---MENU DE OPCIONES---");
+    Console.WriteLine("\n\t1-Mostrar suma de salarios a pagar");
+    Console.WriteLine("\n\t2-Mostrar el proximo a jubilarse");
+    Console.WriteLine("\n\t3-Mostrar tabla de empleados");
+    Console.WriteLine("\n\t4-Salir");
+    Console.Write("\n\tOPCION:\t");
+    if (opcion < 1 || opcion > 4) Console.WriteLine("\n\tOpcion Invalida, REINGRESE");
+    
+} while (opcion != 4);
