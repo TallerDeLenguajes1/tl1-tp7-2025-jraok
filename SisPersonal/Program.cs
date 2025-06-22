@@ -10,7 +10,7 @@ for (int i = 0; i < empleados.Length; i++)
 {
     Console.WriteLine($"\n\t\tCargando los datos del empleado {i+1}");
     empleados[i] = new Empleado();  /* creacion del objeto empleado */
-    bool ok = 0;    /* variable booleana para confirmar algunas cargas */
+    bool ok = false;    /* variable booleana para confirmar algunas cargas */
     string entrada;     /* variable que es usada como entrada del taclado */
 
     // Ingreso el nombre del empleado
@@ -69,9 +69,9 @@ for (int i = 0; i < empleados.Length; i++)
     do
     {
         /* estos son los estados civiles aceptados para el formulario */
-        Console.Write("\n\t---Estado civil---\n\tSoltero/a = S\n\tCasado/a = C\n\tDivorciado/a = D\n\tViudo/a = V");
+        Console.Write("\n\t---Estado civil---\n\tSoltero/a = S\n\tCasado/a = C\n\tDivorciado/a = D\n\tViudo/a = V\n\tEstado:\t");
         entrada = Console.ReadLine();
-        if (empleados[i].AsignarEC(entrada))    /* si la carga es exitosa salimos del bucle sino un mensje de error */
+        if (empleados[i].AsignarEC(entrada[0]))    /* si la carga es exitosa salimos del bucle sino un mensje de error */
         {
             break;
         }else{
@@ -100,5 +100,7 @@ for (int i = 0; i < empleados.Length; i++)
             Console.WriteLine("\n\t---Error indice invalido, reingrese");
         }
     } while (true);
+
+    Console.WriteLine(new string('-', 50)); // separador visual
 
 }
