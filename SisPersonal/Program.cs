@@ -2,9 +2,11 @@
 using EspacioEmpleado;
 using Internal;
 
-int opcion;
-Empleado[] empleados = new Empleado[3];
-DateTime FechaAux;
+Empleado[] empleados = new Empleado[3];     /* arreglo de objetos */
+int opcion;     /* entero auxiliar para el menu de opciones */
+DateTime FechaAux;  /* variable auxiliar para las fechas ingresadas */
+bool ok = false;    /* variable booleana para confirmar algunas cargas */
+string entrada;     /* variable que es usada como entrada del taclado */
 
 Console.WriteLine("\n\t\t---TALLER DE LENGUAJES I---");
 Console.WriteLine("\n\tCARGA DE DATOS DE LOS EMPLEADOS");
@@ -12,8 +14,6 @@ for (int i = 0; i < empleados.Length; i++)
 {
     Console.WriteLine($"\n\t\tCargando los datos del empleado {i+1}");
     empleados[i] = new Empleado();  /* creacion del objeto empleado */
-    bool ok = false;    /* variable booleana para confirmar algunas cargas */
-    string entrada;     /* variable que es usada como entrada del taclado */
 
     // Ingreso el nombre del empleado
     do
@@ -115,6 +115,24 @@ do
     Console.WriteLine("\n\t3-Mostrar tabla de empleados");
     Console.WriteLine("\n\t4-Salir");
     Console.Write("\n\tOPCION:\t");
-    if (opcion < 1 || opcion > 4) Console.WriteLine("\n\tOpcion Invalida, REINGRESE");
-    
+    entrada = Console.ReadLine();
+    if (int.TryParse(entrada, out opcion) || opcion < 1 || opcion > 4){
+        Console.WriteLine("\n\tOpcion Invalida, REINGRESE");
+        continue;
+    }
+    switch (opcion)
+    {
+        case 1:
+            float salarios;
+            for (int i = 0; i < empleados.Length; i++)
+            {
+                salarios+=empleados[i].CalcularSueldo();
+            }
+            break;
+        case 1:
+            break;
+        case 1:
+            break;    
+    }
+
 } while (opcion != 4);
