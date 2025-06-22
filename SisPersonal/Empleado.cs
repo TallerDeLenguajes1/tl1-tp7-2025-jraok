@@ -78,11 +78,8 @@ namespace EspacioEmpleado
             }
         }
         public bool AsignarFechaIngreso(DateTime fecha){
-            if (fechaNacimiento > fecha)
+            if (fechaNacimiento > fecha || DateTime.Today < fecha)
             {
-                return false;
-            }else if(DateTime.Today < fecha)
-                {
                 return false;
             }else{
                 fechaIngreso = fecha;
