@@ -154,7 +154,7 @@ do
             {
                 salarios+=empleados[i].CalcularSueldo();
             }
-            Console.WriteLine($"Total a pagar en concepto de salarios: {salarios}");
+            Console.WriteLine($"Total a pagar en concepto de salarios: ${salarios:F2}");
             break;
         case 2:
             int indice = 0, edadBase = 0;
@@ -171,7 +171,7 @@ do
             Console.WriteLine($"\n\tEdad: {edadBase} años");
             Console.WriteLine($"\n\tCargo del empleado: {empleados[indice].CargoEmpleado}");
             Console.WriteLine($"\n\tAntiguedad: {empleados[indice].CalcularAntiguedad()} años");
-            Console.WriteLine($"\n\tSalario: ${empleados[indice].CalcularSueldo()}");
+            Console.WriteLine($"\n\tSalario: ${empleados[indice].CalcularSueldo():F2}");
             break;
         // case 3:
         //     Console.WriteLine("\n\t\t---EMPLEADOS---");
