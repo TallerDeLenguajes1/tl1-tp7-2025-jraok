@@ -65,7 +65,39 @@ for (int i = 0; i < empleados.Length; i++)
         }
     } while (true);
 
+    // ingreso del estado civil
+    do
+    {
+        Console.Write("\n\t---Estado civil---\n\tSoltero/a = S\n\tCasado/a = C\n\tDivorciado/a = D\n\tViudo/a = V");
+        entrada = Console.ReadLine();
+        if (empleados[i].AsignarEC(entrada))
+        {
+            break;
+        }else{
+            Console.WriteLine("\n\t\t---Estado civil no valido");
+        }
+    } while (true);
     
+    // ingreso del cargo
+    do
+    {
+        Console.WriteLine("\n\tSeleccione un cargo");
+        int j = 0;
+        string[] ListaCargos = Enum.GetNames(typeof(Cargos));
+        foreach (string cargo in ListaCargos)
+        {
+            Console.WriteLine($"{++j}- {cargo}");
+        }
+        Console.Write("\n\tCargo: ");
+        entrada = Console.ReadLine();
+        if (int.TryParse(entrada, out int indice) && indice > 0 && indice <= ListaCargos.Length){
+            Cargos cargoIngresado = (Cargos)(--indice);
+            empleados[i].AsignarCargo(cargoIngresado);
+            break;
+        }else{
+            Console.WriteLine("\n\t---Error indice invalido");
+        }
+    } while (true);
     
 
 }
