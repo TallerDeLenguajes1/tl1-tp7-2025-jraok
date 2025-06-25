@@ -1,8 +1,8 @@
 ﻿using EspacioCalculadora;
 
 // variables para el programa
-double numero = 0, opcion = 0;
-int continuar = 1;
+double numero = 0;
+int continuar = 1, opcion = 0;
 string operacionMenu;
 Calculadora calculador = new Calculadora();
 
@@ -22,7 +22,7 @@ do{
     if(string.IsNullOrEmpty(operacionMenu))break; /* verificacion de qque si se cancelo la operacion */
 
     // verificacion que no se ingrese un string u opcion invalida
-    if(!double.TryParse(operacionMenu, out opcion) || (opcion < 1 || opcion > 5)){
+    if(!int.TryParse(operacionMenu, out opcion) || (opcion < 1 || opcion > 5)){
         Console.WriteLine("\t\t---ERROR OPCION NO VALIDA, REINGRESE---");
         continue; /* salto al proximo ciclo en caso de que la entrada sea invalida */
     }
